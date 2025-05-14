@@ -1,0 +1,17 @@
+What is Javascript?
+
+Javascript is an interpreted asynchronous language that works only with one thread, is the “web language” because this language is used for the major part of the web, works in conjunction with html and css, JS has the power of changing html content.
+
+
+PROPERTIES
+
+ASYNCHRONOUS
+INTERPRETED
+CLOSURE
+DYNAMIC
+WEAKLY TYPED
+HIGH LEVEL
+SINGLE THREAD
+HOISTING
+SCOPE
+DIFFERENCE BETWEEN LET, CONST VS VAR IN HOISTING
