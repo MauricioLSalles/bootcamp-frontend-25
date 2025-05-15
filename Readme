@@ -1,7 +1,19 @@
+# bootcamp-frontend-25
 What is Javascript?
 
 Javascript is an interpreted asynchronous language that works only with one thread, is the “web language” because this language is used for the major part of the web, works in conjunction with html and css, JS has the power of changing html content.
 
+Currently, JavaScript can be executed both on the client (browser) and on the server (thanks to environments such as NodeJs)
+
+What else does JavaScript offer?
+DOM manipulation
+
+Form validation
+API consumption with fetch
+Modern Frameworks: React, Angular, Vue
+Node.js for backend development
+ES6 modules (import, export)
+.
 
 PROPERTIES
 
@@ -15,3 +27,5 @@ SINGLE THREAD
 HOISTING
 SCOPE
 DIFFERENCE BETWEEN LET, CONST VS VAR IN HOISTING
+EVENT LOOP
+
