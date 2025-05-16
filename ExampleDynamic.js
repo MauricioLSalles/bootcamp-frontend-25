@@ -1,4 +1,4 @@
-var item1;
+var item1 = undefined;
 let item2 = null;
 let item3 = [];
 let item4 = 0;
