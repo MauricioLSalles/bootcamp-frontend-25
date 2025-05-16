@@ -3,11 +3,11 @@ function makeFunc () {
     let name = "Mozilla";
     
     function displayName() {
-        console.log(this.name);
+        console.log(name);
     }
     
-    function changeName(name) {
-        name = name
+    function changeName(nam) {
+        name = nam
     }
     
   return {displayName, changeName};
