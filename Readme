@@ -6,26 +6,83 @@ Javascript is an interpreted asynchronous language that works only with one thre
 Currently, JavaScript can be executed both on the client (browser) and on the server (thanks to environments such as NodeJs)
 
 What else does JavaScript offer?
-DOM manipulation
 
-Form validation
-API consumption with fetch
-Modern Frameworks: React, Angular, Vue
-Node.js for backend development
-ES6 modules (import, export)
-.
+- DOM manipulation  
+- Form validation  
+- API consumption with `fetch`  
+- Modern Frameworks: React, Angular, Vue  
+- Node.js for backend development  
+- ES6 modules (`import`, `export`)  
 
-PROPERTIES
 
-ASYNCHRONOUS
-INTERPRETED
-CLOSURE
-DYNAMIC
-WEAKLY TYPED
-HIGH LEVEL
-SINGLE THREAD
-HOISTING
-SCOPE
-DIFFERENCE BETWEEN LET, CONST VS VAR IN HOISTING
-EVENT LOOP
+## PROPERTIES
+
+### INTERPRETED  
+JavaScript is considered an interpreted language because its code is usually executed line by line by an engine (like Google’s V8) at runtime, without needing a separate compilation step beforehand. Instead of converting the whole code into machine language ahead of time like a compiled language (e.g., C++), JavaScript engines parse, interpret, and often optimize the code while it runs in the browser or runtime environment (like Node.js).
+### DYNAMIC  
+JavaScript is called a dynamic language because:
+
+Variable types are determined at runtime, not in advance.
+
+You don’t need to declare the data type of a variable — it can change while the program runs.
+
+For example:
+
+```js
+let x = 10;     // x is a Number
+x = "hello";    // now x is a String
+```
+
+This flexibility allows for fast prototyping and coding, but can also lead to unexpected behavior if not handled carefully.
+
+JavaScript also supports dynamic object properties, meaning you can add or remove keys from objects at any time.
+
+### ASYNCHRONOUS  
+JavaScript is single-threaded, meaning it runs one line at a time. But it's asynchronous thanks to its non-blocking model that handles things like server requests, timers, and user events without freezing the main thread.
+
+It uses:
+
+- Callbacks, Promises, and async/await
+
+- A runtime system with:
+
+- The Call Stack
+
+- Web APIs (e.g., setTimeout, fetch)
+
+- The Task Queue
+
+- The Event Loop
+
+How the Event Loop works:
+- Code runs in the Call Stack.
+
+- Async tasks go to Web APIs.
+
+When ready, they move to the Task Queue.
+
+The Event Loop checks if the Call Stack is empty.
+
+If so, it pushes the next task to the stack.
+### HIGH LEVEL  
+It is considered a high-level language because its syntax is very close to human understanding without having to decipher assembly code.
+### SCOPE
+Scope is the area where a variable can be accessed in JavaScript.
+
+Think of it like an invisible bubble around a variable. If you're inside the bubble, you can use it. If you're outside, you can't see or use it.  
+### CLOSURE
+A closure is a function that remembers the variables from the place where it was created, even after that place is gone.
+
+It’s like the function carries a backpack with variables inside it, and keeps access to them even outside.  
+### WEAKLY TYPED  
+JavaScript is weakly typed because it allows operations between different data types and automatically converts them when needed (called type coercion).
+### HOISTING  
+What is hoisting in JavaScript (with functions)?
+Hoisting means that JavaScript moves declarations to the top of their scope before the code runs.
+
+This applies to:
+
+- Variables (var, let, const)
+
+- Functions (but only function declarations)
 
