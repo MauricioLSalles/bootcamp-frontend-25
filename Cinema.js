@@ -12,15 +12,7 @@ class Seat{
 class Cinema{
     cinemaSits;
     constructor(rows, seatsPerRow){
-        let arr = [];
-        for(let i =0; i<rows; i++){
-            let row = [];
-             for(let j =0; j<seatsPerRow; j++){
-                row.push(new Seat(i,j));
-            }
-            arr.push(row)
-        }
-        this.cinemaSits = arr;
+        this.cinemaSits = Array.from({length:rows}, () => Array.from({length:seatsPerRow},()=>new Seat())) ;
     }
 
     showSeatStatus() {
