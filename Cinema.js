@@ -34,7 +34,7 @@ class Cinema{
             this.cinemaSits[row][seat].state = "inUse"
         }
         catch (error){
-            console.log(error);
+            console.log("error");
         }
     }
 }
@@ -43,6 +43,6 @@ const cinema = new Cinema(5,5);
 
 cinema.showSeatStatus();
 
-cinema.reserveSeat(1,2);
+cinema.reserveSeat(1,20);
 
 cinema.showSeatStatus();
