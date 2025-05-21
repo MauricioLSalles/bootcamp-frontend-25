@@ -6,20 +6,24 @@ class Seat{
         this.row = row;
         this.number = number;
     }
+
+    toString() {
+    return this.state;
+  }
 }
 
 
 class Cinema{
     cinemaSits;
     constructor(rows, seatsPerRow){
-        this.cinemaSits = Array.from({length:rows}, () => Array.from({length:seatsPerRow},()=>new Seat())) ;
+        this.cinemaSits = Array.from({length:rows}, (v,i) => Array.from({length:seatsPerRow},(vc,j)=>new Seat(i,j))) ;
     }
 
     showSeatStatus() {
         let res = "";
         this.cinemaSits.map(row => {
             row.map( (seat) => {
-                res = res + seat.state+" ";
+                res = res + seat +" ";
             })
             res = res + "\n"
         })       
