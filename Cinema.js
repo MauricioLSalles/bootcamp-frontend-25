@@ -1,5 +1,11 @@
 class Seat{
     state = "empty";
+    row;
+    number;
+    constructor(row, number){   
+        this.row = row;
+        this.number = number;
+    }
 }
 
 
@@ -9,8 +15,8 @@ class Cinema{
         let arr = [];
         for(let i =0; i<rows; i++){
             let row = [];
-             for(let i =0; i<seatsPerRow; i++){
-                row.push(new Seat());
+             for(let j =0; j<seatsPerRow; j++){
+                row.push(new Seat(i,j));
             }
             arr.push(row)
         }
@@ -43,6 +49,6 @@ const cinema = new Cinema(5,5);
 
 cinema.showSeatStatus();
 
-cinema.reserveSeat(1,20);
+cinema.reserveSeat(1,2);
 
 cinema.showSeatStatus();
