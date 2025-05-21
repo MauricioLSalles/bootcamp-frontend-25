@@ -9,7 +9,7 @@ class Cinema{
         let arr = [];
         for(let i =0; i<rows; i++){
             let row = [];
-             for(let i =0; i<rows; i++){
+             for(let i =0; i<seatsPerRow; i++){
                 row.push(new Seat());
             }
             arr.push(row)
