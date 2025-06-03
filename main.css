@@ -1,0 +1,41 @@
+.box1{
+    border: 5px solid cyan;
+    padding: 5vh 0;
+    margin: 4vh 3vh 0;
+}
+
+.box2{
+    border: 5px solid cyan;
+    padding: 2vh 0;
+    margin: 3.4vh 6vh 0;
+}
+
+.box3{
+    border: 5px solid magenta;
+    padding: 20vh 0;
+    margin: 4vh 6vh;
+}
+
+.box4{
+    border: 5px solid cyan;
+    padding: 0;
+    margin: 4vh 3vh;
+}
+
+.box5{
+    border: 5px solid magenta;
+    padding: 6vh 0;
+    margin: 1vh 1vh;
+}
+
+.box6{
+    border: 5px solid magenta;
+    padding: 2vh 0;
+    margin: 1vh 1vh;
+}
+
+body{
+    border: 5px solid cyan;
+    margin: 0;
+    background-color: darkblue;
+}
