@@ -1,6 +1,7 @@
 import Cinema from './Cinema'
 
 function App() {
+  
 
   return (
     <>
