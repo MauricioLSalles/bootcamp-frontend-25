@@ -5,6 +5,17 @@ function Cinema() {
 
     const [seat, setSeat] = useState(CinemaSeats.createSeats(10, 10));
 
+    function reserveSeat(row,col){
+        try{
+            if(seat[row][col].state !== "empty") throw Error("seat isnt empty");
+            seat[row][col].state = "inUse";
+            setSeat([...seat]);
+        }
+        catch (error){
+            console.log(error);
+        }
+    }
+
 
   return (
     <div>{seat.map((row, id) => {
@@ -13,6 +24,7 @@ function Cinema() {
                 {row.map((seat, index) => {
                     return (
                     <button
+                    onClick={() => reserveSeat(id, index)}
                         key={index}
                     >
                         {seat.state}
