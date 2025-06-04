@@ -1,4 +1,4 @@
-class Seat{
+export class Seat{
     state = "empty";
     row;
     number;

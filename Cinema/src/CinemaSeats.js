@@ -1,18 +1,7 @@
+import { Seat } from "./Seat";
 export class CinemaSeats{
-    cinemaSits;
-    constructor(rows, seatsPerRow){
-        this.cinemaSits = Array.from({length:rows}, (v,i) => Array.from({length:seatsPerRow},(vc,j)=>new Seat(i,j))) ;
-    }
-
-    showSeatStatus() {
-        let res = "";
-        this.cinemaSits.map(row => {
-            row.map( (seat) => {
-                res = res + seat +" ";
-            })
-            res = res + "\n"
-        })       
-        console.log(res)
+    static createSeats(rows, seatsPerRow){
+        return Array.from({length:rows}, (v,i) => Array.from({length:seatsPerRow},(vc,j)=>new Seat(i,j))) ;
     }
 
     reserveSeat(row,seat){
