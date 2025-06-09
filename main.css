@@ -1,13 +1,16 @@
 .box1{
     border: 5px solid cyan;
-    flex-grow: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
 .box2{
     border: 5px solid cyan;
-    flex-grow: 1;
     margin: 0 2vh;
+    display: flex;
+    justify-content: end;
 
 }
 
@@ -15,6 +18,8 @@
     border: 5px solid magenta;
     flex-grow: 12;
     margin: 0 2vh;
+    display: flex;
+    justify-content: center;
 
 }
 
@@ -35,7 +40,10 @@
 }
 
 .box6{
-    border: 5px solid magenta;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
     flex-grow: 1;
 
 }
