@@ -24,6 +24,7 @@ function Cinema() {
                 {row.map((seat, index) => {
                     return (
                     <button
+                    style={{width:"50px", height:"50px", backgroundColor: seat.state === "empty" ? "green" : "red"}}
                     onClick={() => reserveSeat(id, index)}
                         key={index}
                     >
