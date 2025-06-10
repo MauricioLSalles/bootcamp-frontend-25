@@ -1,5 +1,5 @@
 export class Seat{
-    state = "empty";
+    state = false;
     row;
     number;
     constructor(row, number){   
