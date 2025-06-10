@@ -1,45 +1,64 @@
-.box1{
-    border: 5px solid cyan;
+.title{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    padding: 5px 10px;
+    border-right:outset salmon;
+    border-bottom: outset salmon;
+    border-top: outset lightsalmon;
+    border-left: outset lightsalmon;
 }
 
-.box2{
-    border: 5px solid cyan;
+.title > p{
+    margin: 0;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.stars{
     margin: 0 2vh;
     display: flex;
+    gap: 4px;
     justify-content: end;
 
 }
 
-.box3{
-    border: 5px solid magenta;
+.image{
     flex-grow: 12;
     margin: 0 2vh;
     display: flex;
     justify-content: center;
+    border: 5px solid darkslategray;
 
 }
 
-.box4{
+.data{
+    border: 5px solid darkgoldenrod;
+    background-color: lightsalmon;
+    aspect-ratio: 16 / 2;
     display: flex;
     flex-direction: column;
-    border: 5px solid cyan;
     gap: 1vh;
     padding: 1vh;
     flex-grow: 5;
 
 }
 
-.box5{
-    border: 5px solid magenta;
+.description{
     flex-grow: 3;
 
 }
 
-.box6{
+.description > * {
+    margin: 0;
+    aspect-ratio: 8;
+}
+
+.description > h6{
+    align-self: flex-start;
+}
+
+.stats{
     border-top: 1px solid black;
     display: flex;
     justify-content: end;
@@ -48,11 +67,12 @@
 
 }
 
-body{
-    border: 5px solid cyan;
+.card{
+    background-color: salmon;
+    border: 10px solid darkslategray;
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    width: fit-content;
     margin: 0;
     gap: 1vh;
     padding: 2vh;
