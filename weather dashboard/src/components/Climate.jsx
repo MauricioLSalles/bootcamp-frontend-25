@@ -1,3 +1,6 @@
+import { useRef, useState } from "react";
+import ClimateView from "./ClimateView";
+
 function Climate() {
     const mockWeatherData = {
     'New York': {
@@ -16,12 +19,29 @@ function Climate() {
       windSpeed: '20 km/h'
     },
   };
+  const [history, setHistory] = useState([]);
+
+
+  function handleSearch(){
+    const locationName = inputRef.current.value;
+    const location = mockWeatherData[locationName];
+    console.log(location);
+    setHistory([...history, location]);
+  }
+
+  function handleClean(){
+    inputRef.current.value = "";
+    inputRef.current.focus();
+  }
+
+  const inputRef = useRef(null);
  
   return (
     <div>
-        <input/>
-        <button>Search</button>
-        <button><b>Clean</b></button>
+        <input ref={inputRef}/>
+        <button onClick={handleSearch}>Search</button>
+        <button onClick={handleClean}><b>Clean</b></button>
+        {history[0] === undefined? <></>: <ClimateView temperature={history[0].temperature} humidity={history[0].humidity} windSpeed={history[0].humidity}/>}
     </div>
   )
 }
