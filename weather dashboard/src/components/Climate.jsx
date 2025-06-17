@@ -20,7 +20,7 @@ function Climate() {
       windSpeed: '20 km/h'
     },
   };
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState(new Map());
   const [current, setCurrent] = useState();
    
 
@@ -30,9 +30,9 @@ function Climate() {
     const location = mockWeatherData[locationName];
     if(location === undefined) return;
     const saveHistory = {...location,name:locationName}
-    history.push(saveHistory);
+    history.set(locationName,saveHistory);
     setCurrent(location);
-    setHistory([...history]);   
+    setHistory(new Map(history));   
   }
 
   function searchHistory(locationName){
@@ -44,7 +44,10 @@ function Climate() {
   function handleClean(){
     inputRef.current.value = "";
     inputRef.current.focus();
+    setHistory([]);
+    setCurrent();
   }
+
 
   const inputRef = useRef(null);
  
@@ -53,7 +56,7 @@ function Climate() {
         <input ref={inputRef}/>
         <button onClick={handleSearch}>Search</button>
         <button onClick={handleClean}><b>Clean</b></button>
-        {history[0] === undefined? <></>:<ClimateHistory search={searchHistory} history={history}/>}
+        {history.size === 0? <></>:<ClimateHistory search={searchHistory} history={Array.from(history)}/>}
         {current === undefined? <></>: 
           <ClimateView temperature={current.temperature} humidity={current.humidity} windSpeed={current.humidity}/>
         }
