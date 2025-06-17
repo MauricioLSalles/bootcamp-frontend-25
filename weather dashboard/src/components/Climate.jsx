@@ -28,7 +28,10 @@ function Climate() {
   function handleSearch(){
     const locationName = inputRef.current.value;
     const location = mockWeatherData[locationName];
-    if(location === undefined) return;
+    if(location === undefined) {
+      alert("error city doesnt exist");
+      return;
+    }
     const saveHistory = {...location,name:locationName}
     history.set(locationName,saveHistory);
     setCurrent(location);
@@ -36,7 +39,7 @@ function Climate() {
   }
 
   function searchHistory(locationName){
-    const location = mockWeatherData[locationName];
+    const location = history.get(locationName);
     inputRef.current.value = locationName;
     setCurrent(location);
   }
