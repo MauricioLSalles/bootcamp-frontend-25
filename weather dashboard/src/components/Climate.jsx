@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import ClimateView from "./ClimateView";
+import ClimateHistory from "./ClimateHistory";
 
 function Climate() {
     const mockWeatherData = {
@@ -20,13 +21,22 @@ function Climate() {
     },
   };
   const [history, setHistory] = useState([]);
+  const [current, setCurrent] = useState();
+   
 
 
   function handleSearch(){
     const locationName = inputRef.current.value;
     const location = mockWeatherData[locationName];
-    console.log(location);
-    setHistory([...history, location]);
+    const saveHistory = {...location,name:locationName}
+    history.push(saveHistory);
+    setCurrent(location);
+    setHistory([...history]);   
+  }
+
+  function searchHistory(locationName){
+    const location = mockWeatherData[locationName];
+    setCurrent(location);
   }
 
   function handleClean(){
@@ -41,7 +51,10 @@ function Climate() {
         <input ref={inputRef}/>
         <button onClick={handleSearch}>Search</button>
         <button onClick={handleClean}><b>Clean</b></button>
-        {history[0] === undefined? <></>: <ClimateView temperature={history[0].temperature} humidity={history[0].humidity} windSpeed={history[0].humidity}/>}
+        {history[0] === undefined? <></>:<ClimateHistory search={searchHistory} history={history}/>}
+        {current === undefined? <></>: 
+          <ClimateView temperature={current.temperature} humidity={current.humidity} windSpeed={current.humidity}/>
+        }
     </div>
   )
 }
