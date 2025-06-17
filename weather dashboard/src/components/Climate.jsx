@@ -28,6 +28,7 @@ function Climate() {
   function handleSearch(){
     const locationName = inputRef.current.value;
     const location = mockWeatherData[locationName];
+    if(location === undefined) return;
     const saveHistory = {...location,name:locationName}
     history.push(saveHistory);
     setCurrent(location);
@@ -36,6 +37,7 @@ function Climate() {
 
   function searchHistory(locationName){
     const location = mockWeatherData[locationName];
+    inputRef.current.value = locationName;
     setCurrent(location);
   }
 

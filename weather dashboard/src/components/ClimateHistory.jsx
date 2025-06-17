@@ -1,6 +1,5 @@
 
 function ClimateHistory({history, search}) {
-  console.log(history);
   return (
     <div>
     {history.map((h,i) => (
