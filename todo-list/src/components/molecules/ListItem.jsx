@@ -15,7 +15,7 @@ function ListItem(props) {
         <Check
         onChange={()=>editItem(id, !clicked)}
         checked={clicked}/>
-        <span>{text}</span>
+        <span style={{margin:"0 10px"}}>{text}</span>
         <Button style={{display:clicked?"none":"inline-block"}} onClick={()=>editItem(id)} text={"Edit"}/>
         <Button style={{display:clicked?"none":"inline-block"}} onClick={()=>deleteItem(id)} text={"Delete"}/>
     </li>
