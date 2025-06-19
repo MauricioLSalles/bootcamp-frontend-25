@@ -28,7 +28,7 @@ function ToDoList() {
   return (
     <div>
         <InputButton addItem={addItem} inputValue={inputValue} updateInput={setInputValue} buttonText="Add" inputPlaceHolder="Add Task" />
-        <List items={items}/>
+        <List editItem={editItem} deleteItem={deleteItem} items={items}/>
     </div>
   )
 }
