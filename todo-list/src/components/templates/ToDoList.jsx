@@ -12,7 +12,12 @@ function ToDoList() {
         setInputValue("");
     }
 
-    function editItem(index){
+    function editItem(index, check){
+        if(check !== undefined){
+            items[index].clicked = !items[index].clicked;
+            setItems([...items]);
+            return;
+        }
         items[index].text = inputValue;
         setItems([...items]);
         setInputValue("");
