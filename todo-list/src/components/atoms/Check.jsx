@@ -1,7 +1,8 @@
 
-function Check() {
+function Check(props) {
+    const {...inputProps} = props;
   return (
-    <div>Check</div>
+    <input {...inputProps} type="checkbox"/>
   )
 }
 

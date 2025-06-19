@@ -1,8 +1,8 @@
-import React from 'react'
 
-function Button() {
+function Button(props) {
+    const {text: text, ...buttonProps} = props;
   return (
-    <div>Button</div>
+    <button {...buttonProps}>{text}</button>
   )
 }
 
