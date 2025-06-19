@@ -3,10 +3,31 @@ import InputButton from '../molecules/InputButton'
 import List from '../organisms/List'
 
 function ToDoList() {
-    const [items, setItems] = useState([{text:"1",clicked:true}]);
+    const [items, setItems] = useState([]);
+    const [inputValue, setInputValue] = useState("");
+
+    function addItem(){
+        items.push({text:inputValue, clicked:false});
+        setItems([...items]);
+        setInputValue("");
+    }
+
+    function editItem(index){
+        items[index].text = inputValue;
+        setItems([...items]);
+        setInputValue("");
+    }
+
+    function deleteItem(index){
+        items.splice(index,1);
+        setItems([...items]);
+    }
+
+
+
   return (
     <div>
-        <InputButton buttonText="Add" inputPlaceHolder="Add Task" />
+        <InputButton addItem={addItem} inputValue={inputValue} updateInput={setInputValue} buttonText="Add" inputPlaceHolder="Add Task" />
         <List items={items}/>
     </div>
   )
