@@ -10,14 +10,24 @@ function ListItem(props) {
       deleteItem:deleteItem,
       editItem:editItem,
       ...moleculeProps} = props;
+
+    function handleEditChange(){
+      editItem(id)
+    }
+    function handleDeleteChange(){
+      deleteItem(id)
+    }
+    function handleCheckChange(){
+      editItem(id,clicked)
+    }
   return (
     <li {...moleculeProps}>
         <Check
-        onChange={()=>editItem(id, !clicked)}
+        onChange={handleCheckChange}
         checked={clicked}/>
         <span style={{margin:"0 10px"}}>{text}</span>
-        <Button style={{display:clicked?"none":"inline-block"}} onClick={()=>editItem(id)} text={"Edit"}/>
-        <Button style={{display:clicked?"none":"inline-block"}} onClick={()=>deleteItem(id)} text={"Delete"}/>
+        <Button style={{display:clicked?"none":"inline-block"}} onClick={handleEditChange} text={"Edit"}/>
+        <Button style={{display:clicked?"none":"inline-block"}} onClick={handleDeleteChange} text={"Delete"}/>
     </li>
   )
 }
