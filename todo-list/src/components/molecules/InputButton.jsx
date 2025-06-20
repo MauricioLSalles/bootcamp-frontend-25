@@ -6,12 +6,12 @@ function InputButton(props) {
         inputPlaceHolder:inputPlaceHolder,
         addItem:addItem, 
         buttonText:buttonText,
-        updateInput:updateInput,
+        inputRef:inputRef,
         inputValue:inputValue,
         ...moleculeProps} = props;
   return (
     <div {...moleculeProps}>
-        <Input onChange={(e)=> updateInput(e.target.value)} value={inputValue} placeholder={inputPlaceHolder}/> 
+        <Input ref={inputRef} value={inputValue} placeholder={inputPlaceHolder}/> 
         <Button onClick={addItem} text={buttonText}/>
     </div>
   )

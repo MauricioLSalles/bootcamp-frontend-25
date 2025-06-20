@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react'
+import { useReducer, useRef } from 'react'
 import InputButton from '../molecules/InputButton';
 import List from '../organisms/List';
 
@@ -23,19 +23,19 @@ function reducer(state, action){
 
 function ToDoList() {
     const [items, dispatch] = useReducer(reducer, []);
-    const [inputValue, setInputValue] = useState("");    
+    const input = useRef("");    
 
     function addItem(){
         dispatch({
             type:'added',
-            text: inputValue,
+            text: input.current.value,
         })
     }
 
     function editItem(id,click){
         dispatch({
             type:'edited',
-            text: inputValue,
+            text: input.current.value,
             id: id,
             click:click
         })
@@ -52,7 +52,7 @@ function ToDoList() {
 
   return (
     <div>
-        <InputButton addItem={addItem} inputValue={inputValue} updateInput={setInputValue} buttonText="Add" inputPlaceHolder="Add Task" />
+        <InputButton addItem={addItem} inputRef={input} buttonText="Add" inputPlaceHolder="Add Task" />
         <List editItem={editItem} deleteItem={deleteItem} items={items}/>
     </div>
   )
