@@ -12,23 +12,30 @@
  * Submit your code once it is complete.
  */
 
-const languages = ['JavaScript', 'Python'];
+import { useState } from "react";
+import { LanguageContext } from "./context/LanguageContext";
+import MainSection from "./components/molecules/MainSection";
+
+export const languages = ['JavaScript', 'Python'];
+
 
 export default function App() {
+
+  const [index, setIndex] = useState(0);
+
+  function update(){
+    if(index +1 < languages.length)
+    setIndex(index +1);
+  else setIndex(0);
+  }
+  
  return (
-   <>
+   <LanguageContext.Provider value={{value:languages[index], update:update}} >
      <MainSection />
-   </>
+   </LanguageContext.Provider>
  );
 }
 
 
-function MainSection() {
- return (
-   <div>
-     <p id="favoriteLanguage">favorite programing language: {languages[0]}</p>
-     <button id="changeFavorite">toggle language</button>
-   </div>
- )
-}
+
 
