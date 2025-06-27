@@ -1,0 +1,83 @@
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 4%;
+    border-right:outset salmon;
+    border-bottom: outset salmon;
+    border-top: outset lightsalmon;
+    border-left: outset lightsalmon;
+}
+span{
+    font-size: 5%;
+}
+.title > p{
+    margin: 0;
+    font-size: 8%;
+    font-weight: bolder;
+}
+
+.stars{
+    margin: 0 10%;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+
+}
+
+.image{
+    flex-grow: 12;
+    margin: 0 15%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid darkslategray;
+
+}
+
+.data{
+    border: 5px solid darkgoldenrod;
+    background-color: lightsalmon;
+    aspect-ratio: 16 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    padding: 10%;
+    flex-grow: 5;
+
+}
+h6{
+    font-style: 2%;
+}
+
+.description{
+    font-style: 2%;
+    flex-grow: 3;
+
+}
+
+.description > * {
+    margin: 0;
+    aspect-ratio: 8;
+}
+
+.description > h6{
+    align-self: flex-start;
+}
+
+.stats{
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    flex-grow: 1;
+
+}
+
+.card-yugi{
+    background-color: salmon;
+    border: 3px solid darkslategray;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 2%;
+}

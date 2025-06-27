@@ -1,0 +1,79 @@
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-right:outset salmon;
+    border-bottom: outset salmon;
+    border-top: outset lightsalmon;
+    border-left: outset lightsalmon;
+}
+
+.title > p{
+    margin: 0;
+    font-size: 2px;
+    font-weight: bolder;
+}
+
+.stars{
+    margin: 0 2vh;
+    display: flex;
+    gap: 4px;
+    justify-content: end;
+
+}
+
+.image{
+    flex-grow: 12;
+    margin: 0 2vh;
+    display: flex;
+    justify-content: center;
+    border: 5px solid darkslategray;
+
+}
+
+.data{
+    border: 5px solid darkgoldenrod;
+    background-color: lightsalmon;
+    aspect-ratio: 16 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    padding: 1%;
+    flex-grow: 5;
+
+}
+
+.description{
+    flex-grow: 3;
+
+}
+
+.description > * {
+    margin: 0;
+    aspect-ratio: 8;
+}
+
+.description > h6{
+    align-self: flex-start;
+}
+
+.stats{
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: end;
+    gap: 1px;
+    flex-grow: 1;
+
+}
+
+.card-yugi{
+    background-color: salmon;
+    border: 1px solid darkslategray;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0;
+    gap: 1%;
+    padding: 2%;
+}
