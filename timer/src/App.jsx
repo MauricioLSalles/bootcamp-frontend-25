@@ -1,8 +1,9 @@
+import Timer from "./components/organisms/Timer"
 
 function App() {
   return (
     <>
-    timer
+    <Timer/>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import './Button.css'
-export default function Button({text,color, ...props}) {
+export default function Button({onClick,text,color, ...props}) {
   return (
-    <button className={`bg-${color}`} {...props}>{text}</button>
+    <button onClick={onClick} className={`bg-${color}`} {...props}>{text}</button>
   )
 }
