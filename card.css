@@ -18,6 +18,10 @@ span {
   font-weight: bolder;
 }
 
+.title > img {
+  width: 1.5vw;
+}
+
 .stars {
   margin: 0 0.5vw;
   display: flex;
