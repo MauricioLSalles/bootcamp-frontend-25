@@ -6,7 +6,7 @@ The JavaScript event loop is a fundamental mechanism that enables asynchronous o
 
 ## why it is nescesary
 
-as javascript is a single threaded language, it has only one line of logic process which may lead to the entire application halting in the case of a long running function. So with the event loop we can delegate the long task to external APIs or be resolved later.
+Javascript is a single threaded language, it has only one line of logic process which may lead to the entire application halting in the case of a long running function. So with the event loop we can delegate the long task to external APIs or be resolved later.
 
 ## how it works
 
