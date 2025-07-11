@@ -10,6 +10,18 @@ as javascript is a single threaded language, it has only one line of logic proce
 
 ## how it works
 
+first the code is send to the call stack Synchronously
+
+then its executed on the Call Stack.
+if an asynchronous operation is encountered (e.g., setTimeout, fetch), it's passed to the relevant Web API.
+then the Web API handles the asynchronous task in the background.
+Once the asynchronous task completes, its callback function is added to the Callback Queue (or Microtask Queue for Promises).
+The Event Loop continuously checks if the Call Stack is empty.
+If the Call Stack is empty, the Event Loop moves callbacks from the Microtask Queue to the Call Stack.
+After the Microtask Queue is empty, the Event Loop moves callbacks from the Callback Queue to the Call Stack for execution.
+
+First the
+
 Callback Queue
 
 Microtask Queue
