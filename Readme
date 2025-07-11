@@ -1,0 +1,19 @@
+## Event Loop
+
+## what is the event loop
+
+The JavaScript event loop is a fundamental mechanism that enables asynchronous operations in a single-threaded environment. It ensures that tasks are executed efficiently without blocking the main thread, making web applications responsive.
+
+## why it is nescesary
+
+as javascript is a single threaded language, it has only one line of logic process which may lead to the entire application halting in the case of a long running function. So with the event loop we can delegate the long task to external APIs or be resolved later.
+
+## how it works
+
+Callback Queue
+
+Microtask Queue
+
+Event Loop
+
+![alt text](http://url/to/img.png)
