@@ -1,5 +1,8 @@
-import styles from './Checkout.module.css';
-import { LoadingIcon } from './Icons';
+import { useEffect, useReducer, useState } from "react";
+import styles from "./Checkout.module.css";
+import { LoadingIcon } from "./Icons";
+import { getProducts } from "./dataService";
+import { ProductType, ProductsReducer } from "./reducer/ProductsReducer";
 // import { getProducts } from './dataService';
 
 // You are provided with an incomplete <Checkout /> component.
@@ -20,34 +23,89 @@ import { LoadingIcon } from './Icons';
 //  - The total should reflect any discount that has been applied
 //  - All dollar amounts should be displayed to 2 decimal places
 
+const Product = ({
+  dispatch,
+  id,
+  name,
+  availableCount,
+  price,
+  orderedQuantity,
+  total,
+}) => {
+  function add() {
+    if (orderedQuantity === availableCount) {
+      return;
+    }
+    dispatch({
+      type: "OPERATION",
+      id,
+      orderedQuantity: 1,
+    });
+  }
 
-
-const Product = ({ id, name, availableCount, price, orderedQuantity, total }) => {
+  function substract() {
+    if (orderedQuantity === 0) {
+      return;
+    }
+    dispatch({
+      type: "OPERATION",
+      id,
+      orderedQuantity: -1,
+    });
+  }
   return (
     <tr>
       <td>{id}</td>
       <td>{name}</td>
       <td>{availableCount}</td>
       <td>${price}</td>
-      <td>{orderedQuantity}</td>   
+      <td>{orderedQuantity}</td>
       <td>${total}</td>
       <td>
-        <button className={styles.actionButton}>+</button>
-        <button className={styles.actionButton}>-</button>
+        <button onClick={add} className={styles.actionButton}>
+          +
+        </button>
+        <button onClick={substract} className={styles.actionButton}>
+          -
+        </button>
       </td>
-    </tr>    
+    </tr>
   );
-}
-
+};
 
 const Checkout = () => {
+  const [loading, setLoading] = useState<boolean>(true);
+  const [productList, dispatch] = useReducer(ProductsReducer, []);
+
+  function calcTotal(productList: ProductType[]): number {
+    return productList.reduce((prev, curr) => {
+      return prev + curr.total;
+    }, 0);
+  }
+
+  function calcTotalWithoutDiscount(productList: ProductType[]): number {
+    return productList.reduce((prev, curr) => {
+      return prev + curr.orderedQuantity * curr.price;
+    }, 0);
+  }
+
+  const total = calcTotal(productList);
+
+  const totalWithoutDiscount = calcTotalWithoutDiscount(productList);
+
+  useEffect(() => {
+    getProducts().then((products) => {
+      dispatch({ type: "SET", payload: products });
+      setLoading(false);
+    });
+  }, []);
   return (
     <div>
-      <header className={styles.header}>        
-        <h1>Electro World</h1>        
+      <header className={styles.header}>
+        <h1>Electro World</h1>
       </header>
       <main>
-        <LoadingIcon />        
+        {loading ? <LoadingIcon /> : <></>}
         <table className={styles.table}>
           <thead>
             <tr>
@@ -62,12 +120,23 @@ const Checkout = () => {
             </tr>
           </thead>
           <tbody>
-          {/* Products should be rendered here */}
+            {productList.map((product) => (
+              <Product
+                dispatch={dispatch}
+                id={product.id}
+                orderedQuantity={product.orderedQuantity}
+                name={product.name}
+                price={product.price}
+                total={product.total}
+                availableCount={product.availableCount}
+                key={product.id}
+              />
+            ))}
           </tbody>
         </table>
         <h2>Order summary</h2>
-        <p>Discount: $ </p>
-        <p>Total: $ </p>       
+        <p>Discount: {totalWithoutDiscount - total}$ </p>
+        <p>Total: {Math.round(total)}$ </p>
       </main>
     </div>
   );
